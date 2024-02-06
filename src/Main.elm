@@ -52,7 +52,7 @@ init : Model
 init =
     { todoList = []
     , nextId = TodoId 1
-    }
+     }
 
 
 newTodo : TodoId -> Todo
@@ -65,7 +65,8 @@ update msg model =
     case msg of
         AddTodo ->
             { model
-                | todoList = List.concat [ model.todoList, [ newTodo model.nextId ] ]
+                | todoList = List.concat [ model.todoList, [ newTodo model.nextId ] 
+                , [ newTodo model.nextId ] ]
                 , nextId = generateNextTodoId model.nextId
             }
 
